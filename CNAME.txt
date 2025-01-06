@@ -1,0 +1,12 @@
+www.mindmazeai.com -> username.github.io
+
+mindmazeai.com
+
+mindmazeai.com -> 67.43.226.199
+
+Type: CNAME
+
+Name: mindmazeai.com
+
+Value: Anthony-Leon6.github.io
+
