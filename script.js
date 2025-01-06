@@ -54,51 +54,232 @@ const mazes = [
         '+  +--+  +--+  +  +  +  +--+--+--+--+--+  +  +--+  +  +  +--+--+',
         '|           |  |  |  |                 |  |  |     |  |        |',
         '+--+--+--+  +--+  +  +--+--+--+--+--+  +  +  +--+--+--+--+--+  +',
-        'START ->          |                 |     |              | END ->',
+        '            |                 |     |              |           ',
         '+-----+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+',
     ],
+    
 ];
 
 const asciiArts = [
+
+    `
+    /\\___/\\
+   (  o o  )
+   (  =^=  )
+    (______)
+    `, // Cat
+    `
+     ,_____,
+    /       \\
+   /  ^   ^  \\
+  ( (  o_o  ) )
+   \\ \\     / /
+    \\_)===(_/
+    `, // Owl
+    `
+      /^\\
+     /   \\
+    /     \\
+   /__|_|__\\
+    `, // Simple House
+    `
+    .-""""-.
+   /        \\
+  /_        _\\
+ // }      { \\\\
+ \\\\  _//\\\\_ //
+  \\\\/      \\//
+   '--------'
+    `, // Robot Face
+    `
+     .---.
+    /_____\\
+    |[ ]|
+    |---|
+    |___|
+    `, // Castle Tower
+    `
+    |\\---/|
+    | o_o |
+     \\_^_/
+    `, // Simple Cat
+    `
+     /\\
+    /  \\
+   /____\\
+   |    |
+   |[]  |
+   |____|
+    `, // House
+    `
+(\\____/)
+  (o.o)
+  (")(")"
+    `, // Bunny
+    `
+    /\\___/\\
+    (o   o)
+    ( =^= )
+    (______)
+    `, // Another Cat
+    `
+      __{}__
+     /     \\
+    /       \\
+    \\       /
+     \\__ __/
+    `, // UFO
+    `
+    ▄█▀█▀█▄
+    ▀▀▀██▀▀▀
+    ░▀█▄█▀░
+    `, // Butterfly
+    `
+    /\\_/\\
+    ((@v@))
+    {_._}
+    /   \\
+    |     |   
+    |     |   
+    |_____|  
+    `, // Wise Owl
     `
       ____
-    _|__  |__
-   /   /\\   \\
-  /___/  \\___\\
-   |  |/\\|  |
-   |  |  |  |
-  /____\\/____\\
+     /    \\
+    | ^  ^ |
+    \\  ==  /
+     \\____/
     `,
     `
-       _____
-      /     \\
-     | () () |
-      \\  ^  /
-       |||||
-       |||||
+    ╔═════════════╗
+    ║ (◉︵◉) HALP ║
+    ╚═════════════╝
     `,
-    
-    
- 
-];
+    `
+    ╔═╦═╦═╦═╗
+    ║█║▓║▒║░║
+    ╠═╬═╬═╬═╣
+    ║░║▒║▓║█║
+    ╠═╬═╬═╬═╣
+    ║▓║░║█║▒║
+    ╚═╩═╩═╩═╝
+    `,   
+    `
+    ╔══════════════════════════════════════════╗
+    ║╔════════════╗╔════════════╗╔════════════╗║
+    ║║▓░▒█▓░▒█▓░▒║║█▄▀▄█▄▀▄█▄▀║║▀▄█▀▄█▀▄█▀▄║║
+    ║║░▒█▓░▒█▓░▒█║║▄█▄▀▄█▄▀▄█▄║║▄▀▄█▀▄█▀▄█▀║║
+    ║║▒█▓░▒█▓░▒█▓║║█▄▀▄█▄▀▄█▄▀║║▀▄█▀▄█▀▄█▀▄║║
+    ║╚════════════╝╚════════════╝╚════════════╝║
+    ║╔═╦═╦═╦═╦═╦═╗╔═╦═╦═╦═╦═╦═╗╔═╦═╦═╦═╦═╦═╗║
+    ║║█║▓║▒║░║▒║▓║║▓║▒║░║█║▓║▒║║░║▒║▓║█║▒║░║║
+    ║╠═╬═╬═╬═╬═╬═╣╠═╬═╬═╬═╬═╬═╣╠═╬═╬═╬═╬═╬═╣║
+    ║║▓║▒║░║█║░║▒║║▒║░║█║▓║▒║░║║█║▓║▒║░║▓║█║║
+    ║╚═╩═╩═╩═╩═╩═╝╚═╩═╩═╩═╩═╩═╝╚═╩═╩═╩═╩═╩═╝║
+    ║╔══════════════════════════════════════╗  ║
+    ║║██▀▄▀▄▀▄██░▒▓█▀▄▀▄▀▄██░▒▓█▀▄▀▄▀▄██║  ║
+    ║║██▄▀▄▀▄▀██▓▒░██▄▀▄▀▄▀██▓▒░██▄▀▄▀▄▀║  ║
+    ║║██▀▄▀▄▀▄██░▒▓█▀▄▀▄▀▄██░▒▓█▀▄▀▄▀▄██║  ║
+    ║╚══════════════════════════════════════╝  ║
+    ╚══════════════════════════════════════════╝
+    `,
+    `
+    ╔════════════════════════════════════╗
+    ║╔═╗╔═╗╔═╗║╔═╗╔═╗╔═╗║╔═╗╔═╗╔═╗║╔═╗║
+    ║║█║║▓║║▒║║║░║║▒║║▓║║║█║║▓║║▒║║║░║║
+    ║╚═╝╚═╝╚═╝║╚═╝╚═╝╚═╝║╚═╝╚═╝╚═╝║╚═╝║
+    ║▓░▒█▓░▒█▓║░▒█▓░▒█▓░║▒█▓░▒█▓░▒║█▓░║
+    ║░▒█▓░▒█▓░║▒█▓░▒█▓░▒║█▓░▒█▓░▒█║▓░▒║
+    ║╔═╗╔═╗╔═╗║╔═╗╔═╗╔═╗║╔═╗╔═╗╔═╗║╔═╗║
+    ║║▀║║▄║║█║║║▀║║▄║║█║║║▀║║▄║║█║║║▀║║
+    ║╚═╝╚═╝╚═╝║╚═╝╚═╝╚═╝║╚═╝╚═╝╚═╝║╚═╝║
+    ╚════════════════════════════════════╝
+    `,
+    `
+    ╔══════════════════════════════╗
+    ║╔═╦═╗╔═╦═╗║╔═╦═╗╔═╦═╗║╔═╦═╗║
+    ║║█║█║║▓║▓║║║▒║▒║║░║░║║║█║█║║
+    ║╠═╬═╣╠═╬═╣║╠═╬═╣╠═╬═╣║╠═╬═╣║
+    ║║▀║▄║║█║▀║║║▄║█║║▀║▄║║║█║▀║║
+    ║╠═╬═╣╠═╬═╣║╠═╬═╣╠═╬═╣║╠═╬═╣║
+    ║║░║░║║█║█║║║▓║▓║║▒║▒║║║░║░║║
+    ║╚═╩═╝╚═╩═╝║╚═╩═╝╚═╩═╝║╚═╩═╝║
+    ║▄▀▄█▀▄█▀▄█║▀▄█▀▄█▀▄█▀║▄█▀▄█║
+    ║▀▄█▀▄█▀▄█▀║▄█▀▄█▀▄█▀▄║█▀▄█▀║
+    ╚══════════════════════════════╝
+    `
+    `
+    ╔══════════════════════════════════════════╗
+    ║╔════════════╗   ｡◕‿◕｡   ╔════════════╗  ║
+    ║║(づ｡◕‿‿◕｡)づ║  NOTICE  ║░▒▓█▓▒░║║░▒▓║  ║
+    ║║  ME  PLS  ║   ME!!!   ║▓▒░█▓▒░║║░▒▓║  ║
+    ║╚════════════╝   ฅ^•ﻌ•^ฅ ╚════════════╝  ║
+    ║╔═╦═╦═╦═╦═╦═╗╔═══════════╗╔═╦═╦═╦═╦═╦═╗║
+    ║║█║▓║▒║░║▒║▓║║ (◉︵◉) ←  ║║░║▒║▓║█║▒║░║║
+    ║╠═╬═╬═╬═╬═╬═╣║ ME WHEN   ║╠═╬═╬═╬═╬═╬═╣║
+    ║║▓║▒║░║█║░║▒║║ NO PIZZA  ║║█║▓║▒║░║▓║█║║
+    ║╚═╩═╩═╩═╩═╩═╝╚═══════════╝╚═╩═╩═╩═╩═╩═╝║
+    ║   ▄█▀█▄  ╔═══════════════╗  ▄█▀█▄      ║
+    ║  ╚(●⌒●)╝║ Y U NO LIKE ME║ ╚(●⌒●)╝     ║
+    ║   ╔═╗   ║  (╯°□°）╯︵┻━┻║   ╔═╗       ║
+    ║   ╚═╝   ╚═══════════════╝   ╚═╝       ║
+    ╚══════════════════════════════════════════╝
+    `,
+    `
+    ╔══════════════════════════════════════════╗
+    ║╔═══╗╔═══╗╔═══╗  ▄▄▄▄▄▄▄  ╔═══╗╔═══╗╔═══║
+    ║║▀▄▀║║▄█▄║║░▒▓║ █┌─┐┌─┐█ ║▓▒░║║▄█▄║║▀▄▀║
+    ║║█▄█║║░▒▓║║▄█▄║ █└─┘└─┘█ ║▄█▄║║▓▒░║║█▄█║
+    ║╚═══╝╚═══╝╚═══╝  ▀▀▀▀▀▀▀  ╚═══╝╚═══╝╚═══║
+    ║ ╔═════════╗  ┏━━━━━━━━┓  ╔═════════╗    ║
+    ║ ║(｡◕‿◕｡)→║  ┃BOOP!!!!┃  ║←(｡◕‿◕｡)║    ║
+    ║ ╚═════════╝  ┗━━━━━━━━┛  ╚═════════╝    ║
+    ║▄▀▄▀▄▀▄▀▄▀▄▀▄[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]▄▀▄▀▄▀▄▀▄▀▄║
+    ║█▀█▀█▀█▀█▀█▀█▀DEAL WITH IT▀█▀█▀█▀█▀█▀█▀█║
+    ╚══════════════════════════════════════════╝
+    `
 
+];
+const playerSymbol = 'ⓢ';
+const exitSymbol = 'ⓔ';
 
 let playerPosition = { x: 1, y: 1 };
 let currentMaze = [];
 
 function drawMaze(maze) {
     document.getElementById('maze').textContent = maze.map((row, y) =>
-        row.map((cell, x) =>
-            x === playerPosition.x && y === playerPosition.y ? '@' : cell
-        ).join('')
+        row.map((cell, x) => {
+            if (x === playerPosition.x && y === playerPosition.y) {
+                return playerSymbol;
+            } else if (x === exitPosition.x && y === exitPosition.y) {
+                return exitSymbol;
+            }
+            return cell;
+        }).join('')
     ).join('\n');
 }
 
 function generateMaze() {
     currentMaze = mazes[Math.floor(Math.random() * mazes.length)].map(row => row.split(''));
-    playerPosition = { x: 1, y: 1 }; 
+    // Find starting position marked with ⓢ
+    for (let y = 0; y < currentMaze.length; y++) {
+        for (let x = 0; x < currentMaze[y].length; x++) {
+            if (currentMaze[y][x] === playerSymbol) {
+                playerPosition = { x, y };
+                currentMaze[y][x] = ' '; // Clear the starting position
+                break;
+            }
+        }
+    }
     drawMaze(currentMaze);
 }
+
+function isValidMove(x, y) {
+    return currentMaze[y] && 
+           currentMaze[y][x] && 
+           (currentMaze[y][x] === ' ' || currentMaze[y][x] === exitSymbol);
+}
+
 function generateAsciiArt() {
     const randomAsciiArt = asciiArts[Math.floor(Math.random() * asciiArts.length)];
     document.getElementById('maze').textContent = randomAsciiArt;
@@ -121,17 +302,34 @@ function updatePlayerPosition(newX, newY) {
     }
 }
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp') {
-        updatePlayerPosition(playerPosition.x, playerPosition.y - 1);
-    } else if (event.key === 'ArrowDown') {
-        updatePlayerPosition(playerPosition.x, playerPosition.y + 1);
-    } else if (event.key === 'ArrowLeft') {
-        updatePlayerPosition(playerPosition.x - 1, playerPosition.y);
-    } else if (event.key === 'ArrowRight') {
-        updatePlayerPosition(playerPosition.x + 1, playerPosition.y);
+document.addEventListener('keydown', handleKeyPress);
+
+function handleKeyPress(event) {
+    const key = event.key;
+    let newX = playerPosition.x;
+    let newY = playerPosition.y;
+
+    if (key === 'ArrowUp') {
+        newY--;
+    } else if (key === 'ArrowDown') {
+        newY++;
+    } else if (key === 'ArrowLeft') {
+        newX--;
+    } else if (key === 'ArrowRight') {
+        newX++;
     }
-});
+
+    if (isValidMove(newX, newY)) {
+        playerPosition.x = newX;
+        playerPosition.y = newY;
+        drawMaze(currentMaze);
+    }
+}
+
+function isValidMove(x, y) {
+    return currentMaze[y] && currentMaze[y][x] && currentMaze[y][x] === ' ';
+}
+
 
 function copyToClipboard() {
     var copyText = document.getElementById("copyText");
