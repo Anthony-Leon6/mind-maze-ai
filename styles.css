@@ -1,0 +1,20 @@
+.button-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+.glow-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #37ff00;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.glow-button:hover {
+    background-color: #1eff00;
+    box-shadow: 0 0 10px rgba(43, 255, 0, 0.7);
+}
+
+
